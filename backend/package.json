@@ -2,9 +2,10 @@
   "name": "finance-backend",
   "version": "1.0.0",
   "description": "Backend for a financial management application",
-  "main": "index.js",
+  "main": "src/app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/app.ts"
   },
   "keywords": [],
   "author": "Randy Soriani - contato@randysoriani.com.br",
@@ -19,6 +20,7 @@
     "bcryptjs": "^2.4.3",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
-    "nanoid": "^3.3.8"
+    "nanoid": "^3.3.8",
+    "ts-node-dev": "^2.0.0"
   }
 }
