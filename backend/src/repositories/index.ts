@@ -1,4 +1,5 @@
 import { DataSource } from 'typeorm'
+import { UsersModel } from './models/users'
 
 export const appDataSource = new DataSource({
     type: "postgres",
@@ -7,7 +8,7 @@ export const appDataSource = new DataSource({
     username: "admin",
     password: "P@ssw0rd!",
     database: "finance",
-    entities: [ ],
+    entities: [ UsersModel ],
     migrations: [ './src/repositories/migrations/*.ts' ]
 })
 
