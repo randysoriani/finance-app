@@ -12,6 +12,11 @@ export class UsersController{
         const repository = new UserRepositoryORM()
         const createUser = new CreateUser(repository)
 
+        const exists = await repository.findByEmail(email)
+        if(exists){
+            return res.status(400).json({status: 'error', message: 'Email already in use'})
+        }
+
         const result = await createUser.execute(email, password)
 
         if(result){
