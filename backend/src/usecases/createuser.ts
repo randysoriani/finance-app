@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid'
+import { hashSync } from 'bcryptjs';
 import { IUserRepository } from "../repositories/users";
 
 export class CreateUser{
@@ -13,7 +14,7 @@ export class CreateUser{
             const user = {
                 id: nanoid(),
                 email,
-                password
+                password: hashSync(password, 10)
             }
             const response = await this.repository.save(user)
             if(response){
