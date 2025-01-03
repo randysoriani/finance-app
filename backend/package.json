@@ -9,10 +9,12 @@
   "keywords": [],
   "author": "Randy Soriani - contato@randysoriani.com.br",
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "typescript": "^5.2.2",
     "vitest": "^2.1.8"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.2",
     "nanoid": "^3.3.8"
   }
