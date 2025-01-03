@@ -18,9 +18,26 @@ export class UserRepositoryORM implements IUserRepository{
 
         return false
     }
+
+    async delete(id: string): Promise<boolean> {
+        const response = await this.repository.delete(id)
+        if(response){
+            return true
+        }
+
+        return false
+    }
     
     async findByEmail(email: string): Promise<User | undefined> {
         const user = await this.repository.findOneBy({email})
+        if(user){
+            return user
+        }
+        return
+    }
+
+    async findById(id: string): Promise<User | undefined> {
+        const user = await this.repository.findOneBy({id})
         if(user){
             return user
         }
