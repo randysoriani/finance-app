@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid'
 import { IUserRepository } from "../repositories/users";
 
 export class CreateUser{
@@ -7,11 +8,16 @@ export class CreateUser{
         if(!email || !password){return}
 
         const exists = await this.repository.findByEmail(email)
-        console.log(exists)
+        
         if(!exists){
-            const response = await this.repository.save({id: '123', email, password})
+            const user = {
+                id: nanoid(),
+                email,
+                password
+            }
+            const response = await this.repository.save(user)
             if(response){
-                return {id: '132', accessToken: '123', refreshToken: '123'}
+                return {id: user.id, accessToken: '123', refreshToken: '123'}
             }
         }
 
