@@ -10,6 +10,7 @@
   "author": "Randy Soriani - contato@randysoriani.com.br",
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.7",
     "typescript": "^5.2.2",
     "vitest": "^2.1.8"
   },
