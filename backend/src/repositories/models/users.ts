@@ -10,4 +10,7 @@ export class UsersModel {
 
     @Column()
     password!: string
+
+    @Column()
+    reset_token!: string
 }

@@ -10,7 +10,8 @@ export class UserRepositoryORM implements IUserRepository{
         const response = await this.repository.save({
             id: String(user.id),
             email: user.email,
-            password: user.password
+            password: user.password,
+            reset_token: user.reset_token
         })
         if(response){
             return true
