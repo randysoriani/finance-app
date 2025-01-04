@@ -1,7 +1,7 @@
-import jwt from 'jsonwebtoken'
 import { nanoid } from 'nanoid'
 import { hashSync } from 'bcryptjs';
 import { IUserRepository } from "../repositories/users";
+import { GenerateAccessJWT, GenerateRefreshJWT } from '../helpers/jwt-generators';
 
 export class CreateUser{
     constructor (private readonly repository: IUserRepository){}
@@ -21,8 +21,8 @@ export class CreateUser{
             if(response){
                 return {
                     id: user.id, 
-                    accessToken: jwt.sign({}, String(process.env.JWT_SECRET), { expiresIn: 60 * 60 }), //1h
-                    refreshToken: jwt.sign({}, String(process.env.JWT_SECRET), { expiresIn: 60 * 60 * 24 * 30 }) //30d
+                    accessToken: GenerateAccessJWT({}),
+                    refreshToken: GenerateRefreshJWT({})
                 }
             }
         }

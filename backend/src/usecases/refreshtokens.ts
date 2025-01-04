@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken'
+import { GenerateAccessJWT, GenerateRefreshJWT } from '../helpers/jwt-generators'
 
 export class RefreshTokens{
     async execute(refreshToken: string){
@@ -9,8 +10,8 @@ export class RefreshTokens{
         try{
             const valid = jwt.verify(refreshToken, String(process.env.JWT_SECRET))
             if(valid){
-                const accessToken = jwt.sign({}, String(process.env.JWT_SECRET), { expiresIn: 60 * 60 }) //1h
-                const refreshToken = jwt.sign({}, String(process.env.JWT_SECRET), { expiresIn: 60 * 60 * 24 * 30 }) //30d
+                const accessToken = GenerateAccessJWT({})
+                const refreshToken = GenerateRefreshJWT({})
                 return {accessToken, refreshToken}
             }
             return { }
