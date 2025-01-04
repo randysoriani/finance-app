@@ -17,7 +17,6 @@ describe('Auth user', () => {
 
     it('Should return access and refresh tokens for valid email and password', async () => {
         const response = await sut.execute(email, 'password123')
-        console.log(response)
         expect(response).toBeTruthy()
         expect(response).not.toBeInstanceOf(Error)
         expect(response).toHaveProperty('accessToken')
