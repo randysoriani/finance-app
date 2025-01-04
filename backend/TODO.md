@@ -1,0 +1,2 @@
+- [ ] persist refresh token to check if still valid and prevent reuse
+- [ ] admin / superusers
