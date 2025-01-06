@@ -28,6 +28,14 @@ export class InstitutionsRepositoryORM implements IInstitutionRepository{
         return
     }
 
+    async findById(id: string): Promise<Institution | undefined> {
+        const institution = await this.repository.findOneBy({id})
+        if(institution){
+            return institution
+        }
+        return
+    }
+
     async delete(id: string){
         const response = await this.repository.delete(id)
         if(response){

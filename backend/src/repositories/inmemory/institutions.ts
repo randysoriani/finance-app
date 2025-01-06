@@ -14,6 +14,11 @@ export class InstitutionRepositoryInMemory implements IInstitutionRepository{
         return institution
     }
 
+    async findById(id: string): Promise<Institution | undefined> {
+        const institution = this.institutions.find(item => item.id === id)
+        return institution
+    }
+
     async delete(id: string): Promise<boolean> {
         const exists = this.institutions.find(item => item.id === id)
         if(exists){

@@ -3,6 +3,7 @@ import { InstitutionRepositoryInMemory } from "../repositories/inmemory/institut
 import { InstitutionsRepositoryORM } from "../repositories/typeorm/institutions"
 import { CreateInstitution } from "../usecases/createinstitution"
 import { DeleteInstitution } from "../usecases/deleteinstitution"
+import { UpdateInstitution } from "../usecases/updateinstitution"
 
 export class InstitutionController{
     static async create(req: any, res: any){
@@ -45,5 +46,20 @@ export class InstitutionController{
             return res.status(200).json({status: 'ok', message: 'Institution deleted'})
         }
 
+    }
+
+    static async update(req: any, res: any){
+        const { id } = req.params
+        const { name, code, icon } = req.body
+
+        const repository = new InstitutionsRepositoryORM()
+        const service = new UpdateInstitution(repository)
+        const response = await service.execute(id, name, code, icon)
+
+        if(response instanceof Error){
+            return res.status(500).json({status: 'error', message: 'Unable to update institution'})
+        } else {
+            return res.status(200).json({status: 'ok', message: 'Institution updated', response})
+        }
     }
 }
