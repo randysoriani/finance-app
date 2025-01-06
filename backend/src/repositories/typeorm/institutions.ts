@@ -27,4 +27,13 @@ export class InstitutionsRepositoryORM implements IInstitutionRepository{
         }
         return
     }
+
+    async delete(id: string){
+        const response = await this.repository.delete(id)
+        if(response){
+            return true
+        }
+
+        return false
+    }
 }
