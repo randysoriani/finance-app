@@ -15,7 +15,6 @@ describe('Get transactions', () => {
 
     it('Should all transactions', async () => {
         const response = await sut.execute();
-        console.log(response)
         expect(response).toBeTruthy();
         expect(response).toHaveProperty('transactions');
         expect(response.transactions).toHaveLength(2)
