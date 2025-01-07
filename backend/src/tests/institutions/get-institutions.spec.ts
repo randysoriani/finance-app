@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 import { describe, it, expect } from "vitest";
-import { InstitutionRepositoryInMemory } from "../repositories/inmemory/institutions";
-import { GetInstitutions } from "../usecases/getinstitutions";
+import { InstitutionRepositoryInMemory } from "../../repositories/inmemory/institutions";
+import { GetInstitutions } from "../../usecases/institutions/getinstitutions";
 
 describe('Get institutions', () => {
     const inst1 = { id: nanoid(), name: 'Bank 1', code: 123 };

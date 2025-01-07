@@ -1,7 +1,7 @@
 import { beforeAll, describe, expect, it } from "vitest";
-import { UserRepositoryInMemory } from "../repositories/inmemory/users";
+import { UserRepositoryInMemory } from "../../repositories/inmemory/users";
 import { hashSync } from "bcryptjs";
-import { AuthUser } from "../usecases/authuser";
+import { AuthUser } from "../../usecases/auth/authuser";
 
 describe('Auth user', () => {
     const id = '123'

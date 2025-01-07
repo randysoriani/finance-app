@@ -1,4 +1,4 @@
-import { IUserRepository } from "../repositories/users";
+import { IUserRepository } from "../../repositories/users";
 
 export class DeleteUser{
     constructor (private readonly repository: IUserRepository){}

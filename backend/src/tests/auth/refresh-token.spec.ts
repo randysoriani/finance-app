@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import jwt from 'jsonwebtoken'
-import { RefreshTokens } from "../usecases/refreshtokens";
+import { RefreshTokens } from "../../usecases/auth/refreshtokens";
 
 describe('Refresh token', () => {
     const refreshToken = jwt.sign({}, String(process.env.JWT_SECRET), { expiresIn: 60 * 60 * 24 * 30 })

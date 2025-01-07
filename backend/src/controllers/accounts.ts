@@ -1,7 +1,7 @@
 import { AccountsRepositoryORM } from "../repositories/typeorm/accounts"
 import { InstitutionsRepositoryORM } from "../repositories/typeorm/institutions"
 import { UserRepositoryORM } from "../repositories/typeorm/users"
-import { CreateAccount } from "../usecases/createaccount"
+import { CreateAccount } from "../usecases/accounts/createaccount"
 
 export class AccountsController{
     static async create(req: any, res: any){

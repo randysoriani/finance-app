@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
-import { IUserRepository } from "../repositories/users";
-import { UserRepositoryInMemory } from "../repositories/inmemory/users";
-import { CreateUser } from "../usecases/createuser";
+import { IUserRepository } from "../../repositories/users";
+import { UserRepositoryInMemory } from "../../repositories/inmemory/users";
+import { CreateUser } from "../../usecases/users/createuser";
 
 describe("Create user use case", () => {
   const email = 'valid@mail.com'

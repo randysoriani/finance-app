@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import { GenerateAccessJWT, GenerateRefreshJWT } from '../helpers/jwt-generators'
+import { GenerateAccessJWT, GenerateRefreshJWT } from '../../helpers/jwt-generators'
 
 export class RefreshTokens{
     async execute(refreshToken: string){

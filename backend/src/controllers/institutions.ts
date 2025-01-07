@@ -1,8 +1,8 @@
 import { InstitutionsRepositoryORM } from "../repositories/typeorm/institutions"
-import { CreateInstitution } from "../usecases/createinstitution"
-import { DeleteInstitution } from "../usecases/deleteinstitution"
-import { UpdateInstitution } from "../usecases/updateinstitution"
-import { GetInstitutions } from "../usecases/getinstitutions"
+import { CreateInstitution } from "../usecases/institutions/createinstitution"
+import { DeleteInstitution } from "../usecases/institutions/deleteinstitution"
+import { UpdateInstitution } from "../usecases/institutions/updateinstitution"
+import { GetInstitutions } from "../usecases/institutions/getinstitutions"
 
 export class InstitutionController{
     static async create(req: any, res: any){

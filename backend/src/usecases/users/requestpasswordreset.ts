@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto'
-import { IUserRepository } from "../repositories/users";
+import { IUserRepository } from "../../repositories/users";
 
 export class RequestPasswordReset{
     constructor(private readonly repo: IUserRepository){}

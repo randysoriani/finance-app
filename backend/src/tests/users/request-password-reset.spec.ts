@@ -1,7 +1,7 @@
 import { beforeAll, describe, expect, it } from "vitest";
-import { UserRepositoryInMemory } from "../repositories/inmemory/users";
+import { UserRepositoryInMemory } from "../../repositories/inmemory/users";
 import { nanoid } from "nanoid";
-import { RequestPasswordReset } from "../usecases/requestpasswordreset";
+import { RequestPasswordReset } from "../../usecases/users/requestpasswordreset";
 
 describe('Request password reset', () => {
     const id = nanoid()

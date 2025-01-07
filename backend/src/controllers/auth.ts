@@ -1,6 +1,6 @@
 import { UserRepositoryORM } from "../repositories/typeorm/users"
-import { AuthUser, BadRequest } from "../usecases/authuser"
-import { RefreshTokens } from "../usecases/refreshtokens"
+import { AuthUser, BadRequest } from "../usecases/auth/authuser"
+import { RefreshTokens } from "../usecases/auth/refreshtokens"
 
 export class AuthController{
     static async create(req: any, res: any){

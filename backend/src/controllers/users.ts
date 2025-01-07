@@ -1,8 +1,8 @@
 import { UserRepositoryORM } from "../repositories/typeorm/users";
-import { CreateUser } from "../usecases/createuser";
-import { DeleteUser } from "../usecases/deleteuser";
-import { RequestPasswordReset } from "../usecases/requestpasswordreset";
-import { BadRequest, ResetPassword } from "../usecases/resetpassword";
+import { CreateUser } from "../usecases/users/createuser";
+import { DeleteUser } from "../usecases/users/deleteuser";
+import { RequestPasswordReset } from "../usecases/users/requestpasswordreset";
+import { BadRequest, ResetPassword } from "../usecases/users/resetpassword";
 
 export class UsersController{
     static async create(req: any, res: any){

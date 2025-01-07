@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid'
 import { hashSync } from 'bcryptjs';
-import { IUserRepository } from "../repositories/users";
-import { GenerateAccessJWT, GenerateRefreshJWT } from '../helpers/jwt-generators';
+import { IUserRepository } from "../../repositories/users";
+import { GenerateAccessJWT, GenerateRefreshJWT } from '../../helpers/jwt-generators';
 
 export class CreateUser{
     constructor (private readonly repository: IUserRepository){}

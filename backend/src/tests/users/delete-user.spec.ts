@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from "vitest";
-import { IUserRepository } from "../repositories/users";
-import { UserRepositoryInMemory } from "../repositories/inmemory/users";
-import { DeleteUser } from "../usecases/deleteuser";
+import { IUserRepository } from "../../repositories/users";
+import { UserRepositoryInMemory } from "../../repositories/inmemory/users";
+import { DeleteUser } from "../../usecases/users/deleteuser";
 import { nanoid } from "nanoid";
 
 describe("Delete user use case", () => {

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import { CreateInstitution } from '../usecases/createinstitution'
-import { InstitutionRepositoryInMemory } from '../repositories/inmemory/institutions'
+import { CreateInstitution } from '../../usecases/institutions/createinstitution'
+import { InstitutionRepositoryInMemory } from '../../repositories/inmemory/institutions'
 
 describe('Create institution', () => {
     const name = 'Bank 1'

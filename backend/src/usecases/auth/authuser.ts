@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 import { compareSync } from "bcryptjs";
-import { IUserRepository } from "../repositories/users";
+import { IUserRepository } from "../../repositories/users";
 
 export class AuthUser{
     constructor(private readonly repository: IUserRepository){}

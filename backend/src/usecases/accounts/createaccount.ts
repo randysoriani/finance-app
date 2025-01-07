@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
-import { IAccountRepository } from "../repositories/account";
-import { IUserRepository } from "../repositories/users";
-import { IInstitutionRepository } from "../repositories/intitutions";
+import { IAccountRepository } from "../../repositories/account";
+import { IUserRepository } from "../../repositories/users";
+import { IInstitutionRepository } from "../../repositories/intitutions";
 
 export class CreateAccount{
     constructor(private readonly repository: IAccountRepository, 

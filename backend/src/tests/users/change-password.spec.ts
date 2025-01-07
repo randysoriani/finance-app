@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { UserRepositoryInMemory } from "../repositories/inmemory/users";
-import { ResetPassword } from "../usecases/resetpassword";
+import { UserRepositoryInMemory } from "../../repositories/inmemory/users";
+import { ResetPassword } from "../../usecases/users/resetpassword";
 import { nanoid } from "nanoid";
 
 describe('Change user password', ()=>{

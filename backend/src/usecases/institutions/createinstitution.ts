@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import { IInstitutionRepository } from "../repositories/intitutions";
+import { IInstitutionRepository } from "../../repositories/intitutions";
 
 export class CreateInstitution{
     constructor (private readonly repository: IInstitutionRepository){}

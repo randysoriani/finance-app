@@ -1,4 +1,4 @@
-import { IInstitutionRepository } from "../repositories/intitutions";
+import { IInstitutionRepository } from "../../repositories/intitutions";
 
 export class DeleteInstitution{
     constructor(private readonly repository: IInstitutionRepository){}

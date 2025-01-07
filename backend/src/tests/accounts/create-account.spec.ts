@@ -1,9 +1,9 @@
 import { nanoid } from "nanoid";
 import { describe, it, expect } from "vitest";
-import { AccountRepositoryInMemory } from "../repositories/inmemory/accounts";
-import { CreateAccount } from "../usecases/createaccount";
-import { UserRepositoryInMemory } from "../repositories/inmemory/users";
-import { InstitutionRepositoryInMemory } from "../repositories/inmemory/institutions";
+import { AccountRepositoryInMemory } from "../../repositories/inmemory/accounts";
+import { CreateAccount } from "../../usecases/accounts/createaccount";
+import { UserRepositoryInMemory } from "../../repositories/inmemory/users";
+import { InstitutionRepositoryInMemory } from "../../repositories/inmemory/institutions";
 
 describe('Create account', () => {
     const user = { id: nanoid(), email: 'valid@mail.com', password: 'pwd123'}

@@ -1,5 +1,5 @@
 import { hashSync } from "bcryptjs";
-import { IUserRepository } from "../repositories/users";
+import { IUserRepository } from "../../repositories/users";
 
 export class ResetPassword{
     constructor(private readonly repository: IUserRepository){}
