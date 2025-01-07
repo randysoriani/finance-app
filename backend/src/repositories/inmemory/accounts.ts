@@ -1,4 +1,3 @@
-import { appDataSource } from "..";
 import { Account } from "../../entity/account";
 import { IAccountRepository } from "../account";
 
@@ -10,4 +9,8 @@ export class AccountRepositoryInMemory implements IAccountRepository{
         return true
     }
 
+    async findById(id: string): Promise<Account | undefined> {
+        const account = this.accounts.find(item => item.id === id)
+        return account
+    }
 }

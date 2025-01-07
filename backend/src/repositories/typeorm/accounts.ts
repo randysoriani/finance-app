@@ -12,4 +12,10 @@ export class AccountsRepositoryORM implements IAccountRepository{
         }
         return false
     }
+
+    async findById(id: string): Promise<Account | undefined> {
+        const repository = appDataSource.getRepository(AccountsModel)
+        const response = await repository.findOneBy({id})
+        return response ? response : undefined
+    }
 }

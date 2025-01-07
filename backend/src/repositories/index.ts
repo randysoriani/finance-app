@@ -2,6 +2,7 @@ import { DataSource } from 'typeorm'
 import { UsersModel } from './models/users'
 import { InstitutionsModel } from './models/institutions'
 import { AccountsModel } from './models/account'
+import { TransactionsModel } from './models/transactions'
 
 export const appDataSource = new DataSource({
     type: "postgres",
@@ -10,7 +11,7 @@ export const appDataSource = new DataSource({
     username: "admin",
     password: "P@ssw0rd!",
     database: "finance",
-    entities: [ UsersModel, InstitutionsModel, AccountsModel ],
+    entities: [ UsersModel, InstitutionsModel, AccountsModel, TransactionsModel ],
     migrations: [ './src/repositories/migrations/*.ts' ]
 })
 
