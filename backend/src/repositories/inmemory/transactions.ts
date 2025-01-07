@@ -9,4 +9,12 @@ export class TransactionRepositoryInMemory implements ITransactionsRepository{
         return true
     }
 
+    async findAll(): Promise<Transaction[] | undefined> {
+        return this.transactions
+    }
+
+    async findById(id: string): Promise<Transaction | undefined> {
+        const transaction = this.transactions.find(item => item.id === id)
+        return transaction
+    }
 }
