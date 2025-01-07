@@ -1,11 +1,13 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
+import { AccountsModel } from "./account";
 
 @Entity('transactions')
 export class TransactionsModel{
     @PrimaryColumn()
     id!: string
 
-    @Column()
+    @ManyToOne( () => AccountsModel, (account) => account.id )
+    @JoinColumn({name: 'account_id'})
     account_id!: string
 
     @Column()
