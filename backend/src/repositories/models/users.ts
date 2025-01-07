@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToMany, PrimaryColumn } from "typeorm";
+import { AccountsModel } from "./account";
 
 @Entity('users')
 export class UsersModel {
@@ -13,4 +14,8 @@ export class UsersModel {
 
     @Column()
     reset_token!: string
+
+    @OneToMany(() => AccountsModel, (accounts: AccountsModel) => accounts.institution_id, {orphanedRowAction: 'delete'})
+    @JoinColumn({name: 'user_id'})
+    accounts!: AccountsModel[];
 }
