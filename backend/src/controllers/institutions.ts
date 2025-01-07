@@ -1,9 +1,8 @@
-import { Repository } from "typeorm"
-import { InstitutionRepositoryInMemory } from "../repositories/inmemory/institutions"
 import { InstitutionsRepositoryORM } from "../repositories/typeorm/institutions"
 import { CreateInstitution } from "../usecases/createinstitution"
 import { DeleteInstitution } from "../usecases/deleteinstitution"
 import { UpdateInstitution } from "../usecases/updateinstitution"
+import { GetInstitutions } from "../usecases/getinstitutions"
 
 export class InstitutionController{
     static async create(req: any, res: any){
@@ -61,5 +60,15 @@ export class InstitutionController{
         } else {
             return res.status(200).json({status: 'ok', message: 'Institution updated', response})
         }
+    }
+
+    static async find(req: any, res: any){
+        const { id } = req.params
+
+        const repository = new InstitutionsRepositoryORM()
+        const service = new GetInstitutions(repository)
+
+        const response = await service.execute(id)
+        return res.json(response)
     }
 }

@@ -36,6 +36,11 @@ export class InstitutionsRepositoryORM implements IInstitutionRepository{
         return
     }
 
+    async findAll(): Promise<Institution[] | undefined> {
+        const institutions = await this.repository.find()
+        return institutions
+    }
+
     async delete(id: string){
         const response = await this.repository.delete(id)
         if(response){
