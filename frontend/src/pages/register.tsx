@@ -1,15 +1,22 @@
 import { FormEvent, useState } from "react"
+import { useNavigate } from "react-router"
 import axios from 'axios'
 
 export function Register(){
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    
+    let navigate = useNavigate();
 
     async function handleFormSubmit(e: FormEvent){
         e.preventDefault()
         const { data, status } = await axios.post('http://localhost:3000/users', {email, password}, {headers: {'Content-Type': 'application/json'}})
         if(status === 201){
-            console.log('Success: ', data)
+            const accessToken = data.payload.accessToken
+            const refreshToken = data.payload.refreshToken
+            localStorage.setItem('accessToken', accessToken)
+            localStorage.setItem('refreshToken', refreshToken)
+            navigate("/dashboard");
         }
     }
 
