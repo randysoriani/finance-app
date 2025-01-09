@@ -16,8 +16,8 @@ export class AuthUser{
             if(compareSync(password, user.password)){
                 return {
                     id: user.id, 
-                    accessToken: jwt.sign({}, String(process.env.JWT_SECRET), { expiresIn: 60 * 60 }), //1h
-                    refreshToken: jwt.sign({}, String(process.env.JWT_SECRET), { expiresIn: 60 * 60 * 24 * 30 }) //30d
+                    accessToken: jwt.sign({user_id: user.id}, String(process.env.JWT_SECRET), { expiresIn: 60 * 60 }), //1h
+                    refreshToken: jwt.sign({user_id: user.id}, String(process.env.JWT_SECRET), { expiresIn: 60 * 60 * 24 * 30 }) //30d
                 }
             } else {
                 return new BadRequest('Password dont match')
