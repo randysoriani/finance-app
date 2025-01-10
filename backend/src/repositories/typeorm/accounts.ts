@@ -18,4 +18,10 @@ export class AccountsRepositoryORM implements IAccountRepository{
         const response = await repository.findOneBy({id})
         return response ? response : undefined
     }
+
+    async findAll(user_id: string): Promise<Account[] | undefined> {
+        const repository = appDataSource.getRepository(AccountsModel)
+        const response = await repository.findBy({user_id})
+        return response
+    }
 }

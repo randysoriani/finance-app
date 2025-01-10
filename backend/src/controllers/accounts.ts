@@ -2,6 +2,7 @@ import { AccountsRepositoryORM } from "../repositories/typeorm/accounts"
 import { InstitutionsRepositoryORM } from "../repositories/typeorm/institutions"
 import { UserRepositoryORM } from "../repositories/typeorm/users"
 import { CreateAccount } from "../usecases/accounts/createaccount"
+import { GetAccounts } from "../usecases/accounts/getaccounts"
 
 export class AccountsController{
     static async create(req: any, res: any){
@@ -32,5 +33,18 @@ export class AccountsController{
                 }
             })
         }
+    }
+
+    static async get(req: any, res: any){
+        const { id } = req.params
+        const { user_id } = req.body
+
+        console.log(id, user_id)
+
+        const repository = new AccountsRepositoryORM()
+        const service = new GetAccounts(repository)
+
+        const response = await service.execute(user_id, id)
+        return res.json(response)
     }
 }

@@ -13,4 +13,9 @@ export class AccountRepositoryInMemory implements IAccountRepository{
         const account = this.accounts.find(item => item.id === id)
         return account
     }
+
+    async findAll(user_id: string): Promise<Account[] | undefined> {
+        const accounts = this.accounts.filter(item => item.user_id === user_id)
+        return accounts
+    }
 }
