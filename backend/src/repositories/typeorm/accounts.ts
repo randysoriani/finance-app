@@ -4,7 +4,7 @@ import { IAccountRepository } from "../account";
 import { AccountsModel } from "../models/account";
 
 export class AccountsRepositoryORM implements IAccountRepository{
-    async save(account: Account): Promise<boolean> {
+    async save(account: AccountsModel): Promise<boolean> {
         const repository = appDataSource.getRepository(AccountsModel)
         const response = await repository.save(account)
         if(response){
@@ -20,8 +20,8 @@ export class AccountsRepositoryORM implements IAccountRepository{
     }
 
     async findAll(user_id: string): Promise<Account[] | undefined> {
-        const repository = appDataSource.getRepository(AccountsModel)
-        const response = await repository.findBy({user_id})
+        const response = await appDataSource.getRepository(AccountsModel).createQueryBuilder('accounts')
+        .where('user_id = :id', {id: user_id}).getMany()
         return response
     }
 }
