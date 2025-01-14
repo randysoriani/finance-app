@@ -15,7 +15,7 @@ export class UsersModel {
     @Column()
     reset_token!: string
 
-    @OneToMany(() => AccountsModel, (accounts: AccountsModel) => accounts.institution_id, {orphanedRowAction: 'delete'})
+    @OneToMany(() => AccountsModel, (accounts: AccountsModel) => accounts.user_id, {orphanedRowAction: 'delete'})
     @JoinColumn({name: 'user_id'})
     accounts!: AccountsModel[];
 }
