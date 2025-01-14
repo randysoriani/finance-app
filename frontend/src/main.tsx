@@ -5,6 +5,7 @@ import { App } from './App.tsx'
 import { Register } from './pages/register.tsx'
 import { Dashboard } from './pages/dasboard.tsx'
 import { Transactions } from './pages/transactions.tsx'
+import { Login } from './pages/login.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -12,6 +13,7 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path='/' element={<App />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/transactions' element={<Transactions />} />
       </Routes>
