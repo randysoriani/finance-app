@@ -1,16 +1,19 @@
-import { FormEvent, useState } from "react"
-import { useNavigate } from "react-router"
 import axios from 'axios'
+import {  SubmitHandler, useForm } from 'react-hook-form'
+import { useNavigate } from "react-router"
+
+export interface IFormData{
+    email: string
+    password: string
+}
 
 export function Register(){
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+    const { handleSubmit, register } = useForm<IFormData>()
     
     let navigate = useNavigate();
 
-    async function handleFormSubmit(e: FormEvent){
-        e.preventDefault()
-        const { data, status } = await axios.post('http://localhost:3000/users', {email, password}, {headers: {'Content-Type': 'application/json'}})
+    const onSubmit: SubmitHandler<IFormData> = async (formData) => {
+        const { data, status } = await axios.post('http://localhost:3000/users', formData, {headers: {'Content-Type': 'application/json'}})
         if(status === 201){
             const accessToken = data.payload.accessToken
             const refreshToken = data.payload.refreshToken
@@ -21,15 +24,15 @@ export function Register(){
     }
 
     return(
-        <form onSubmit={handleFormSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <fieldset>
                 <label htmlFor="email">Email:</label>
-                <input type="email" id="email" name="email" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
+                <input type="email" id="email" {...register('email')} />
             </fieldset>
 
             <fieldset>
                 <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password" value={password} onChange={(e) => {setPassword(e.target.value)}} />
+                <input type="password" id="password" {...register('password')} />
             </fieldset>
 
             <button type="submit">Register</button>
