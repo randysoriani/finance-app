@@ -11,7 +11,11 @@ export async function isAuthenticated(req: any, res: any, next: NextFunction){
     const [,token] = authorization.split(" ");
     try{
         const isValid = verify(token, String(process.env.SECRET)) as JwtPayload;
+        if(!isValid.user_id){
+            return res.status(401).json({status:'error', message: 'Token expired'})
+        }
         req.body.user_id = isValid.user_id;
+        
     } catch(e){
         return res.status(401).json({status:'error', message: 'Token expired'})
     }
