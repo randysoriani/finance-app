@@ -39,8 +39,6 @@ export class AccountsController{
         const { id } = req.params
         const { user_id } = req.body
 
-        console.log(id, user_id)
-
         const repository = new AccountsRepositoryORM()
         const service = new GetAccounts(repository)
 
