@@ -13,10 +13,10 @@ export function Login(){
     let navigate = useNavigate();
 
     const onSubmit: SubmitHandler<IFormData> = async (formData) => {
-        const { data, status } = await axios.post('http://localhost:3000/users', formData, {headers: {'Content-Type': 'application/json'}})
-        if(status === 201){
-            const accessToken = data.payload.accessToken
-            const refreshToken = data.payload.refreshToken
+        const { data, status } = await axios.post('http://localhost:3000/auth', formData, {headers: {'Content-Type': 'application/json'}})
+        if(status === 200){
+            const accessToken = data?.payload?.accessToken
+            const refreshToken = data?.payload?.refreshToken
             localStorage.setItem('accessToken', accessToken)
             localStorage.setItem('refreshToken', refreshToken)
             navigate("/dashboard");
