@@ -19,11 +19,11 @@ export class AccountsModel{
     @Column()
     account!: number
 
-    @ManyToOne(() => UsersModel, (user) => user.id, {eager: true})
+    @ManyToOne(() => UsersModel, (user) => user.id)
     @JoinColumn({name: 'user_id'})
     user_id!: UsersModel
 
-    @ManyToOne(() => InstitutionsModel, (inst) => inst.id, {eager: true})
+    @ManyToOne(() => InstitutionsModel, (inst) => inst.id)
     @JoinColumn({name: 'institution_id'})
     institution_id!: InstitutionsModel
 }
