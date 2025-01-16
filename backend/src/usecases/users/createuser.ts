@@ -21,8 +21,8 @@ export class CreateUser{
             if(response){
                 return {
                     id: user.id, 
-                    accessToken: GenerateAccessJWT({}),
-                    refreshToken: GenerateRefreshJWT({})
+                    accessToken: GenerateAccessJWT({user_id: user.id}),
+                    refreshToken: GenerateRefreshJWT({user_id: user.id})
                 }
             }
         }
