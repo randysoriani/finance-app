@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken'
+import jwt, { JwtPayload } from 'jsonwebtoken'
 import { GenerateAccessJWT, GenerateRefreshJWT } from '../../helpers/jwt-generators'
 
 export class RefreshTokens{
@@ -8,11 +8,13 @@ export class RefreshTokens{
         }
 
         try{
-            const valid = jwt.verify(refreshToken, String(process.env.JWT_SECRET))
+            const valid = jwt.verify(refreshToken, String(process.env.JWT_SECRET)) as JwtPayload
             if(valid){
-                const accessToken = GenerateAccessJWT({})
-                const refreshToken = GenerateRefreshJWT({})
-                return {accessToken, refreshToken}
+                if(valid.user_id){
+                    const accessToken = GenerateAccessJWT({user_id: valid.user_id})
+                    const refreshToken = GenerateRefreshJWT({user_id: valid.user_id})
+                    return {accessToken, refreshToken}
+                }
             }
             return { }
         } catch(e){
