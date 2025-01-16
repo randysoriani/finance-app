@@ -21,8 +21,7 @@ export function NewTransactionForm(){
     const { handleSubmit, register } = useForm<IFormData>()
 
     function getAccountsList(){
-        const accessToken = localStorage.getItem('accessToken')
-        axiosClient.get('accounts', {headers: {'Authorization': 'Bearer ' + accessToken}})
+        axiosClient.get('accounts')
             .then(response => {
                 setAccounts(response.data.accounts)
                 setIsLoading(false)
@@ -30,8 +29,7 @@ export function NewTransactionForm(){
     }
 
     const onSubmit: SubmitHandler<IFormData> = async (data) => {
-        const accessToken = localStorage.getItem('accessToken')
-        await axiosClient.post('transactions', data, {headers: {'Authorization': 'Bearer ' + accessToken}})
+        await axiosClient.post('transactions', data)
     }
     
     useEffect( ()=>{
