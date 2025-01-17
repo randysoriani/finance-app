@@ -1,6 +1,9 @@
 import axios from 'axios'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useNavigate } from "react-router"
+import { Input } from '../components/Input'
+import { Label } from '../components/Label'
+import { Field } from '../components/Field'
 
 export interface IFormData{
     email: string
@@ -25,15 +28,15 @@ export function Login(){
 
     return(
         <form onSubmit={handleSubmit(onSubmit)}>
-            <fieldset>
-                <label htmlFor="email">Email:</label>
-                <input type="email" id="email" {...register('email')}/>
-            </fieldset>
+            <Field>
+                <Label forField="email">Email:</Label>
+                <Input type="email" id="email" {...register('email')}/>
+            </Field>
 
-            <fieldset>
-                <label htmlFor="password">Password:</label>
-                <input type="password" id="password" {...register('password')}/>
-            </fieldset>
+            <Field>
+                <Label forField="password">Password:</Label>
+                <Input type="password" id="password" {...register('password')}/>
+            </Field>
 
             <button type="submit">Login</button>
         </form>
