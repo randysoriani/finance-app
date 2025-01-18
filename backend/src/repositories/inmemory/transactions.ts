@@ -17,4 +17,8 @@ export class TransactionRepositoryInMemory implements ITransactionsRepository{
         const transaction = this.transactions.find(item => item.id === id)
         return transaction
     }
+
+    async getLastWithAccounts(user_id: string): Promise<Transaction[] | undefined> {
+        throw new Error("Method not implemented.");
+    }
 }

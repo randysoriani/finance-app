@@ -1,6 +1,7 @@
 import { AccountsRepositoryORM } from "../repositories/typeorm/accounts"
 import { TransactionRepositoryORM } from "../repositories/typeorm/transactions"
 import { CreateTransaction } from "../usecases/transactions/create-transaction"
+import { GetLastTransactions } from "../usecases/transactions/getlasttransactions"
 
 export class TransactionsController{
     static async create(req: any, res: any){
@@ -30,5 +31,13 @@ export class TransactionsController{
                 }
             })
         }
+    }
+
+    static async getLastTransactions(req: any, res: any){
+        const { user_id } = req.body
+        const transRepo = new TransactionRepositoryORM()
+        const service = new GetLastTransactions(transRepo)
+        const transactions = await service.execute(user_id)
+        return res.json(transactions)
     }
 }
