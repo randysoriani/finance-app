@@ -4,8 +4,8 @@ import { TransactionRepositoryInMemory } from "../../repositories/inmemory/trans
 import { GetTransactions } from "../../usecases/transactions/gettransactions";
 
 describe('Get transactions', () => {
-    const transaction1 = { id: nanoid(), account_id: 'acc_id', amount: 123, date: new Date(), type: 'Credit', description: 'Salary' }
-    const transaction2 = { id: nanoid(), account_id: 'acc_id', amount: 5565, date: new Date(), type: 'Debit', description: 'Investiment' }
+    const transaction1 = { id: nanoid(), account: 'acc_id', amount: 123, date: new Date(), type: 'Credit', description: 'Salary' }
+    const transaction2 = { id: nanoid(), account: 'acc_id', amount: 5565, date: new Date(), type: 'Debit', description: 'Investiment' }
     
     const repository = new TransactionRepositoryInMemory()
     repository.save(transaction1)
