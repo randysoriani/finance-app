@@ -1,5 +1,5 @@
 interface IProps{
-    onClick: () => {}
+    onClick?: () => {}
     children: React.ReactNode
 }
 
