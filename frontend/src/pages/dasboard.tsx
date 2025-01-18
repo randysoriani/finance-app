@@ -1,12 +1,9 @@
-import { Link } from "react-router";
+import { Sidemenu } from "../components/Sidemenu";
 
 export function Dashboard(){
     return(
         <div>
-            <aside>
-                <Link to="/dashboard">Dashboard</Link>
-                <Link to="/transactions">Transactions</Link>
-            </aside>
+            <Sidemenu />
             <main>
                 <h2>Dashboard</h2>
             </main>

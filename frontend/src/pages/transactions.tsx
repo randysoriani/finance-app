@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router";
 import { NewAccountForm } from "../components/NewAccountForm";
 import { NewTransactionForm } from "../components/NewTransactionForm";
+import { Sidemenu } from "../components/Sidemenu";
 
 export function Transactions(){
     const [isNewAccountFormVisible, setIsNewAccountFormVisible] = useState<boolean>(false)
@@ -9,10 +9,7 @@ export function Transactions(){
 
     return(
         <div>
-            <aside>
-                <Link to="/dashboard">Dashboard</Link>
-                <Link to="/transactions">Transactions</Link>
-            </aside>
+            <Sidemenu />
             <main>
                 <h2>Transactions</h2>
                 <button onClick={() => {setIsNewAccountFormVisible(true)}}>New account</button>
