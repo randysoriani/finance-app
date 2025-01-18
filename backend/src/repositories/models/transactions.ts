@@ -8,7 +8,7 @@ export class TransactionsModel{
 
     @ManyToOne( () => AccountsModel, (account) => account.id )
     @JoinColumn({name: 'account_id'})
-    account_id!: string
+    account!: string
 
     @Column()
     description!: string

@@ -1,6 +1,6 @@
 export interface Transaction{
     id: string
-    account_id: string
+    account: string
     description?: string
     type: string
     amount: number
