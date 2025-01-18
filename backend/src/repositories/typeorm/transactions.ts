@@ -20,7 +20,7 @@ export class TransactionRepositoryORM implements ITransactionsRepository{
         return transactions
     }
 
-   async findById(id: string): Promise<Transaction | undefined> {
+    async findById(id: string): Promise<Transaction | undefined> {
         const transaction = await this.repository.findOneBy({id})
         if(transaction){
             return transaction
@@ -28,4 +28,17 @@ export class TransactionRepositoryORM implements ITransactionsRepository{
 
         return
     }
+
+    async getLastWithAccounts(user_id: string){
+        const response = await appDataSource.getRepository(TransactionsModel)
+                                            .createQueryBuilder('transactions')
+                                            .leftJoinAndSelect('transactions.account', 'accounts')
+                                            .where('accounts.user_id = :id', {id: user_id})
+                                            .orderBy('transactions.date', 'DESC')
+                                            .limit(10)
+                                            .getMany()
+
+        return response
+    }
 }
+
