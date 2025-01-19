@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { axiosClient } from "../helper/axios"
+import { Label } from './Label'
+import { Input } from './Input'
+import { Field } from './Field'
 
-export interface IFormData{
+export interface ITransactionForm{
     type: string
     account_id: string
     amount: number
@@ -18,7 +21,7 @@ export interface IAccount{
 export function NewTransactionForm(){
     const [ accounts, setAccounts ] = useState<[]>([])
     const [ isLoading, setIsLoading ] = useState<boolean>(true)
-    const { handleSubmit, register } = useForm<IFormData>()
+    const { handleSubmit, register } = useForm<ITransactionForm>()
 
     function getAccountsList(){
         axiosClient.get('accounts')
@@ -28,7 +31,7 @@ export function NewTransactionForm(){
             })
     }
 
-    const onSubmit: SubmitHandler<IFormData> = async (data) => {
+    const onSubmit: SubmitHandler<ITransactionForm> = async (data) => {
         await axiosClient.post('transactions', data)
     }
     
@@ -38,32 +41,32 @@ export function NewTransactionForm(){
 
     return(
         <form onSubmit={handleSubmit(onSubmit)}>
-            <fieldset>
-                <label htmlFor="type">Type:</label>
-                <input type="text" id="type" {...register('type')} />
-            </fieldset>
+            <Field>
+                <Label forField='type'>Type:</Label>
+                <Input type="text" id="type" {...register('type')} />
+            </Field>
 
-            <fieldset>
-                <label htmlFor="account_id">Account:</label>
+            <Field>
+                <Label forField='account_id'>Account:</Label>
                 <select id="account_id" {...register('account_id')}>
                     { accounts?.map((account: IAccount) => <option value={account.id}>{account.name}</option>)}
                 </select>
-            </fieldset>
+            </Field>
 
-            <fieldset>
-                <label htmlFor="amount">Amount:</label>
-                <input type="number" id="amonut" {...register('amount')} />
-            </fieldset>
+            <Field>
+                <Label forField='amount'>Amount:</Label>
+                <Input type="number" id="amonut" {...register('amount')} />
+            </Field>
 
-            <fieldset>
-                <label htmlFor="date">Date:</label>
-                <input type="date" id="date" {...register('date')} />
-            </fieldset>
+            <Field>
+                <Label forField='date'>Date:</Label>
+                <Input type="date" id="date" {...register('date')} />
+            </Field>
 
-            <fieldset>
-                <label htmlFor="desc">Description:</label>
-                <input type="text" id="description" {...register('description')} />
-            </fieldset>
+            <Field>
+                <Label forField='desc'>Description:</Label>
+                <Input type="text" id="description" {...register('description')} />
+            </Field>
 
             <button type="submit" disabled={isLoading}>Create</button>
         </form>
