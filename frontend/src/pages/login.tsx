@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { useNavigate } from "react-router"
+import { NavLink, useNavigate } from "react-router"
 import { Input } from '../components/Input'
 import { Label } from '../components/Label'
 import { Field } from '../components/Field'
@@ -43,6 +43,9 @@ export function Login(){
 
                     <button type="submit">Login</button>
                 </form>
+                <NavLink to='/register'
+                    className='mt-2 block text-center'>
+                    Register new user</NavLink>
             </div>
 	    </main>
     )
