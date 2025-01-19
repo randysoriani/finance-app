@@ -27,18 +27,23 @@ export function Login(){
     }
 
     return(
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <Field>
-                <Label forField="email">Email:</Label>
-                <Input type="email" id="email" {...register('email')}/>
-            </Field>
+        <main className='bg-gray-100 flex items-center justify-center h-screen'>
+            <div className='p-4 shadow bg-white rounded'>
+                <form onSubmit={handleSubmit(onSubmit)}
+                      className=' max-w-fit flex flex-col gap-4'>
+                    <Field>
+                        <Label forField="email">Email:</Label>
+                        <Input type="email" id="email" {...register('email')}/>
+                    </Field>
 
-            <Field>
-                <Label forField="password">Password:</Label>
-                <Input type="password" id="password" {...register('password')}/>
-            </Field>
+                    <Field>
+                        <Label forField="password">Password:</Label>
+                        <Input type="password" id="password" {...register('password')}/>
+                    </Field>
 
-            <button type="submit">Login</button>
-        </form>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+	    </main>
     )
 }
