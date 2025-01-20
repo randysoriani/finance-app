@@ -4,6 +4,7 @@ import { axiosClient } from "../helper/axios"
 import { Label } from './Label'
 import { Input } from './Input'
 import { Field } from './Field'
+import { Button } from './Button'
 
 export interface ITransactionForm{
     type: string
@@ -68,7 +69,7 @@ export function NewTransactionForm(){
                 <Input type="text" id="description" {...register('description')} />
             </Field>
 
-            <button type="submit" disabled={isLoading}>Create</button>
+            <Button type="submit" disabled={isLoading}>Create</Button>
         </form>
     )
 }
