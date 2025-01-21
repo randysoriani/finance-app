@@ -50,7 +50,7 @@ export function NewTransactionForm(){
             <Field>
                 <Label forField='account_id'>Account:</Label>
                 <select id="account_id" {...register('account_id')}>
-                    { accounts?.map((account: IAccount) => <option value={account.id}>{account.name}</option>)}
+                    { accounts?.map((account: IAccount) => <option key={account.id} value={account.id}>{account.name}</option>)}
                 </select>
             </Field>
 
