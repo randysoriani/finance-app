@@ -4,6 +4,7 @@ import { axiosClient } from "../helper/axios"
 import { Field } from "./Field"
 import { Label } from "./Label"
 import { Input } from "./Input"
+import { Button } from "./Button"
 
 export interface IAccountForm{
     name: string
@@ -61,7 +62,7 @@ export function NewAccountForm(){
                         <option key={item.id} value={item.id} >{item.name}</option>)}
                 </select>
             </Field>
-            <button type="submit" disabled={isLoading}>Create</button>
+            <Button type="submit" disabled={isLoading}>Create</Button>
         </form>
     )
 }
