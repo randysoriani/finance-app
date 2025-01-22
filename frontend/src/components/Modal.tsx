@@ -33,7 +33,7 @@ export function Modal({title, showHeader = false, onClose, open, children}: IPro
                         }
                     }} >
 
-                    <div className='bg-gray-100 rounded'>
+                    <div className='bg-white/90 rounded backdrop-blur-sm'>
                         {showHeader && <header className='flex p-4 gap-4 justify-between w-full items-center'>
                             <h2 className='font-semibold text-xl uppercase text-gray-700'>{title}</h2>
                             <button onClick={onClose}>close</button>
