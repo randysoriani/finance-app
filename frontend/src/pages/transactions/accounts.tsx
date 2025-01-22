@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { axiosClient } from "../../helper/axios"
 import { NewAccountForm } from "../../components/NewAccountForm"
 import { Modal } from "../../components/Modal"
+import { Button } from "../../components/Button"
 
 interface IAccount{
     id: string
@@ -31,7 +32,7 @@ export function Accounts(){
     function closeModalForm(){
         setIsNewAccountFormVisible(false)
     }
-    
+ 
     return(
         <>
             <Modal title='New account form' open={isNewAccountFormVisible} onClose={closeModalForm} >
@@ -39,10 +40,10 @@ export function Accounts(){
             </Modal>
             <div>
                 <div className='flex gap-4 overflow-auto'>
-                    <button onClick={() => {setIsNewAccountFormVisible(true)}}
-                            className='bg-transparent border-[1px] border-gray-600 rounded px-8 py-4 border-dashed'>
+                    <Button onClick={() => setIsNewAccountFormVisible(true)}
+                            kind="Ghost">
                         <span className='text-gray-600'>New account</span>
-                    </button>
+                    </Button>
                 
                     {!isLoading && accounts.length > 0 && 
                         accounts.map(acc => 
