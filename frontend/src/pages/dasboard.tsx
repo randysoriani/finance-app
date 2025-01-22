@@ -1,9 +1,10 @@
+import { TbLayoutDashboard } from "react-icons/tb";
+import { SectionHeader } from "../components/SectionHeader";
+
 export function Dashboard(){
     return(
         <div>
-            <main>
-                <h2>Dashboard</h2>
-            </main>
+            <SectionHeader title="Dashboard" subtitle="Show all your finances in just one place" icon={<TbLayoutDashboard size={38} />} />
         </div>
     )
 }
