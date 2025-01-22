@@ -14,4 +14,13 @@ export class CategoriesRepositoryInMemory implements ICategoriesRepository{
         const category = this.categories.find(item => item.name === name)
         return category
     }
+
+    async delete(id: string): Promise<boolean> {
+        const exists = this.categories.find(item => item.id === id)
+        if(exists){
+            this.categories.filter(item => item.id === id)
+            return true
+        }
+        return false
+    }
 }
