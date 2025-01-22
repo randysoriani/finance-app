@@ -3,6 +3,7 @@ import { UsersModel } from './models/users'
 import { InstitutionsModel } from './models/institutions'
 import { AccountsModel } from './models/account'
 import { TransactionsModel } from './models/transactions'
+import { CategoriesModel } from './models/categories'
 
 export const appDataSource = new DataSource({
     type: "postgres",
@@ -11,7 +12,7 @@ export const appDataSource = new DataSource({
     username: "admin",
     password: "P@ssw0rd!",
     database: "finance",
-    entities: [ UsersModel, InstitutionsModel, AccountsModel, TransactionsModel ],
+    entities: [ UsersModel, InstitutionsModel, AccountsModel, TransactionsModel, CategoriesModel ],
     migrations: [ './src/repositories/migrations/*.ts' ]
 })
 
