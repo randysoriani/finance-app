@@ -33,6 +33,7 @@ export class TransactionRepositoryORM implements ITransactionsRepository{
         const response = await appDataSource.getRepository(TransactionsModel)
                                             .createQueryBuilder('transactions')
                                             .leftJoinAndSelect('transactions.account', 'accounts')
+                                            .leftJoinAndSelect('transactions.category', 'category')
                                             .where('accounts.user_id = :id', {id: user_id})
                                             .orderBy('transactions.date', 'DESC')
                                             .limit(10)

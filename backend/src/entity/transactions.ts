@@ -3,6 +3,7 @@ export interface Transaction{
     account: string
     description?: string
     type: string
+    category: string
     amount: number
     date: Date
 }

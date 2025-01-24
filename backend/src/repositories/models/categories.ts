@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToMany, PrimaryColumn } from "typeorm";
+import { TransactionsModel } from "./transactions";
 
 @Entity('categories')
 export class CategoriesModel{
@@ -10,4 +11,8 @@ export class CategoriesModel{
 
     @Column()
     icon?: string
+
+    @OneToMany(() => TransactionsModel, (transaction: TransactionsModel) => transaction.category, {orphanedRowAction: 'delete'})
+    @JoinColumn({name: 'category_id'})
+    transactions!: TransactionsModel[];
 }

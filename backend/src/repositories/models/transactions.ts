@@ -1,5 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 import { AccountsModel } from "./account";
+import { CategoriesModel } from "./categories";
 
 @Entity('transactions')
 export class TransactionsModel{
@@ -15,6 +16,10 @@ export class TransactionsModel{
 
     @Column()
     type!: string
+
+    @ManyToOne( () => CategoriesModel, (category) => category.id )
+    @JoinColumn({name: 'category_id'})
+    category!: string
 
     @Column()
     amount!: number
