@@ -9,6 +9,7 @@ import { accountsRouter } from './routes/accounts.ts'
 import { transactionsRouter } from './routes/transactions.ts'
 import { isAuthenticated } from './middleware/isAuthenticated.ts'
 import { categoriesRouter } from './routes/categories.ts'
+import { tradesRouter } from './routes/trades.ts'
 
 const server = express()
 server.use(express.json())
@@ -24,6 +25,7 @@ server.use('/categories', categoriesRouter)
 /** FOR AUTH USERS ONLY */
 server.use('/accounts', isAuthenticated, accountsRouter)
 server.use('/transactions', isAuthenticated, transactionsRouter)
+server.use('/trades', isAuthenticated, tradesRouter)
 
 server.listen(3000, () => {
     console.log('Server up and running at localhost:3000')
