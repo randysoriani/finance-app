@@ -41,7 +41,7 @@ export function NewTransactionForm(){
     }, [])
 
     return(
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className='bg-white p-4 rounded shadow-sm'>
             <Field>
                 <Label forField='type'>Type:</Label>
                 <Input type="text" id="type" {...register('type')} />
