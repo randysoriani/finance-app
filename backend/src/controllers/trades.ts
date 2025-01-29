@@ -5,7 +5,6 @@ import { CreateTrade } from "../usecases/trades/create-trade"
 
 export class TradesController{
     static async create(req: any, res: any){
-        console.log(req.body)
         const { account_id, doc_number, tax_b3, tax_perquisite, tax_register, date, lines  } = req.body
 
         if(!account_id  || !doc_number || !lines || !date){
