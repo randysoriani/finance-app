@@ -11,6 +11,7 @@ import { Login } from './pages/login.tsx'
 import { Main } from './pages/main.tsx'
 import { Accounts } from './pages/transactions/accounts.tsx'
 import { Summary } from './pages/transactions/summary.tsx'
+import { Investments } from './pages/investments.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -25,6 +26,7 @@ createRoot(document.getElementById('root')!).render(
             <Route index={true} element={<Summary />} />
             <Route path='/transactions/accounts' element={<Accounts />} />
           </Route>
+          <Route path='/investments' element={<Investments />} />
         </Route>
       </Routes>
     </BrowserRouter>
