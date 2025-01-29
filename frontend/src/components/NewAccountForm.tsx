@@ -38,7 +38,7 @@ export function NewAccountForm(){
     }, [])
 
     return(
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className='bg-white p-4 rounded shadow-sm'>
             <Field>
                 <Label forField="name">Name:</Label>
                 <Input type="text" id="name" {...register('name')} />
@@ -62,7 +62,7 @@ export function NewAccountForm(){
                         <option key={item.id} value={item.id} >{item.name}</option>)}
                 </select>
             </Field>
-            <Button type="submit" disabled={isLoading}>Create</Button>
+            <Button type="submit" onClick={handleSubmit(onSubmit)} disabled={isLoading}>Create</Button>
         </form>
     )
 }
